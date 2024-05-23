@@ -1,0 +1,21 @@
+
+ Xecure관련 작업중 Spring MVC과 같이 web.xml을 사용하지 않기에 DispatcherServlet을 따로 건들기 까다로움
+
+ 해당부분을 해결하기 위해 여러 방법을 써보았지만 갑자기 성공
+
+아직 뭐때문에 되는지 정확히는 모르지만 처리한방법이
+
+1. 따로 DispatcherServlet을 설정하는 부분을 BootApprication과 같은 선상의 위치에 파일을 위치 시킨다
+
+2. 해당 클레스에 @WebServlet(name = "클래스명", urlPatterns = "/") 추가
+
+3.
+@Bean
+    public ServletRegistrationBean<XecureDispatcherServlet> dispatcherServletRegistration() {
+        ServletRegistrationBean<XecureDispatcherServlet> registration = new ServletRegistrationBean<>(new XecureDispatcherServlet(), "/");
+        registration.setName("dispatcher");
+        // 설정 추가 및 수정
+        return registration;
+    }
+
+해당부분추가

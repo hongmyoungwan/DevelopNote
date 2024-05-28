@@ -1,0 +1,8 @@
+JMS는 ActiveMQ를 이용하여
+
+receiver가 Queue에 데이터를 담에 ActiveMQ에 담아두면
+
+listener가 가져가고 싶을때 destination기반으로 ActiveMQ에서 가져간다
+
+
+

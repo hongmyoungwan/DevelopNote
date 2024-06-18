@@ -1,0 +1,38 @@
+
+참고 사이트
+https://c-i-s.tistory.com/entry/CentOS-7-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%97%B0%EA%B2%B0-%EB%B0%A9%EB%B2%95
+
+
+네트워크에 연결을 하려면 아래의 과정이 필요합니다.
+1. 네트워크 인터페이스 확인
+2. 인터페이스 설정 파일에 부팅 시 자동으로 on되게 설정
+3. 인터페이스 up
+4. systemctl 명령을 통한 네트워크 서비스 재 시작
+5. reboot를 통해 확인
+
+1. 네트워크 인터페이스 확인
+초기 설치 시 'ifconfig' 명령을 사용할 수 없습니다.
+'#> yum install -y net-tools'를 통해 명령어를 설치해야 하는데
+네트워크에 연결이 되어있지 않아 설치할 수 없습니다.
+이때 ifconfig 대신에 '#> ip addr'를 사용하면 인터페이스 정보를 확인할 수 있습니다
+
+lo와 ens33 두 개의 인터페이스를 볼 수 있습니다.
+ 
+lo는 자기 자신을 가리키고 있습니다.
+ 
+CentOS 7의 네트워크 인터페이스는 보통 ens33입니다.
+
+vi로 설정파일을 열어줍니다.
+'#> vi /etc/sysconfig/network-scripts/ifcfg-ens33' //ens33 설정 파일
+맨 아래 'ONBOOT'에 값을 yes로 하면 부팅 시 자동으로 up 됩니다
+'#> ifup ens33' // ens33 인터페이스 up
+ 
+반대로 인터페이스를 down하려면 'ifdown ens33'으로 하면 됩니다.
+
+4. systemctl 명령을 통한 네트워크 서비스 재 시작
+설정 파일을 수정했으면 서비스를 재시작해줍니다.
+'#> systemctl restart network'
+ 
+5. reboot를 통해 확인
+'#> reboot' // os 재시작
+또한 본인의 pc ip로 'ping' 명령을 이용해 통신이 잘 되는지 확인합니다.

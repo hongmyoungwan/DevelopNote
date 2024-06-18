@@ -1,0 +1,14 @@
+
+tomcat쪽 내장 logback과 log4j의 충돌이 발생
+
+mvn tree를 사용하여 내부 구조를 확인 톰캣쪽 logback di를 막기위해 exclusion을 사용
+            <exclusions>
+              <exclusion>
+                <artifactId>commons-beanutils</artifactId>
+                <groupId>commons-beanutils</groupId>
+              </exclusion>
+              <exclusion> 
+			          <groupId>org.jxls</groupId>
+			          <artifactId>jxls</artifactId>	        
+			        </exclusion>
+            </exclusions>

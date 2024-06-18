@@ -1,0 +1,17 @@
+
+외부 라이브러리 가져오기
+		 <dependency>
+            <groupId>com.xecure</groupId>
+            <artifactId>xecure</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:\eGovFrame-4.2.0\maven\repository\xecure\xecure\64\xecure.jar</systemPath>
+        </dependency>
+
+
+로컬 레파지토리 읽기 (외부레파지토리 읽고 나서 로컬)
+	    <repository>
+			    <id>projectRepository</id> 
+			    <name>Project Repository</name> 
+			    <url>file://${project.basedir}/lib</url>
+     </repository>

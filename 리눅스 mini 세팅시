@@ -36,3 +36,15 @@ vi로 설정파일을 열어줍니다.
 5. reboot를 통해 확인
 '#> reboot' // os 재시작
 또한 본인의 pc ip로 'ping' 명령을 이용해 통신이 잘 되는지 확인합니다.
+
+
+
+
+아파치 설치 yum install httpd
+
+아파치 실행 systemctl start httpd
+부팅시 아파치 실행 systemctl enable httpd
+
+firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
+

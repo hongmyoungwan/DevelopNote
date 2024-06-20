@@ -1,0 +1,38 @@
+필요한 패키지를 설치합니다.
+sudo yum install -y yum-utils
+
+  
+Docker CE 저장소를 추가합니다.
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+
+Docker CE를 설치합니다.
+sudo yum install docker-ce docker-ce-cli containerd.io
+
+  
+Docker 서비스를 시작합니다.
+sudo systemctl start docker
+
+  
+부팅 시 Docker가 자동으로 시작되도록 설정합니다.
+sudo systemctl enable docker
+
+  
+Docker 설치를 확인합니다.
+docker --version
+
+  
+추가 문제 해결
+재부팅: 시스템을 재부팅하여 변경 사항을 적용합니다.
+sudo reboot
+
+  
+로그 확인: Docker 데몬 로그를 확인하여 추가적인 오류 메시지를 확인합니다.
+journalctl -u docker.service
+
+  
+권한 문제 확인: 사용자 계정이 docker 그룹에 속해 있는지 확인합니다.
+sudo usermod -aG docker $USER
+  
+이후, 로그아웃했다가 다시 로그인합니다.
+  

@@ -1,0 +1,4 @@
+늙어서 계속 까먹는 tomcat Image 외부 연동 
+
+ex)
+<Context path="/uploadImg" reloadable="true" docBase="D:\Kefci_Download\WWW\IMGDIR\"/>

@@ -1,0 +1,13 @@
+
+개발시 이슈
+1.사진업로드시 스마트에디터의 jindo.FileUploader를 사용하려고 imageUpload라는 jsp를 만들어서 파일을 업로드 하고 callback.html로 redirect를 시도 
+ - 로컬에서는 성공하였으나 web was 분리된 환경에서는 이미지폴더인 Nas쪽으로 붙질 못함
+2.web에서 Nas로 붙질 못하여 서버쪽으로 jindo.FileUploader를 사용하여 데이터 전송 callback.html로 redirect해야하는데 프로젝트가 옛날 프로젝트라 전송에실패
+3.jindo.FileUpload를 포기하고 새로 스크립트를 구축 팝업창에서 ajax를 사용하여 성공시 url을 스마트 에디터에 넣으려고 함
+ - iframe이 부모 함수를 제대로 읽지를 못하는 문제가 발생 
+  1) 크롬 개발자 도구를 사용하다보니 중간에 hp_SE2M_AttachQuickPhoto.js를 사용하는것을 확인 해당 부분에 postMessage를 전송
+  2) hp_SE2M_AttachQuickPhoto.js에서 window.addEventListener( 'message', function( e ){}); 를 사용하여 받고 부모jsp에 다시 postMessage로 보냄
+  3) 부모 jsp에서 window.addEventListener( 'message', function( e ) ){};로 받아  oEditors.getById["ir1"].exec("PASTE_HTML", ["<img src='/" + data + "' />"]);를 사용하여 넣음
+정상 처리됨
+
+※서버에선 웹서버와 nas와 연결된 imageurl을 갖고와야함

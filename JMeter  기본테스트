@@ -1,0 +1,39 @@
+📦 1. JMeter에서 API 테스트 플랜 만들기
+JMeter 실행 (jmeter.bat)
+
+Test Plan 생성
+
+기본으로 하나 있음 → 이름 바꿔도 됨
+
+Thread Group 추가
+
+Test Plan 우클릭 → Add → Threads (Users) → Thread Group
+
+예시 설정:
+
+Number of Threads (Users): 10  --부하 쓰레드
+
+Ramp-Up Period (seconds): 5    --몇초동안 쓰레드 증가할것인지
+
+Loop Count: 2
+
+HTTP Request 추가
+
+Thread Group 우클릭 → Add → Sampler → HTTP Request
+
+설정:
+
+Method: GET
+
+Server Name or IP: jsonplaceholder.typicode.com
+
+Path: /posts
+
+View Results Tree 추가 (결과 확인용)
+
+Thread Group 우클릭 → Add → Listener → View Results Tree
+
+✅ 실행
+상단의 ▶ (Run) 버튼 클릭 → 요청이 10명 * 2회 = 20번 전송됨
+View Results Tree에서 응답 내용과 성공 여부 확인 가능!
+

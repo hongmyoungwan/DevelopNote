@@ -1,0 +1,32 @@
+db사용시 포트포워딩 생각해야함 ex) compose 사용시 54081:3306
+  spring boot, db툴 마찬가지로 54081
+
+🐳 Docker / Docker Compose 관련 명령어 정리
+✅ 1. 컨테이너 상태 확인
+
+docker ps
+현재 실행 중인 컨테이너 목록 보기
+
+-a 옵션 추가 시 정지된 컨테이너도 포함
+
+✅ 2. 컨테이너 로그 보기
+
+docker logs [컨테이너 이름 또는 ID]
+해당 컨테이너의 표준 로그 출력 보기
+
+✅ 3. Docker Compose로 서비스 올리기
+
+docker-compose up -d
+또는 (Spring Boot 3.1+ 사용 시 내부적으로 실행되는 명령)
+    
+docker compose --file [compose.yaml 경로] up --no-color --detach --wait
+-d: 백그라운드 실행
+
+--wait: 컨테이너가 준비될 때까지 기다림
+
+✅ 4. Docker Compose로 서비스 내리기
+
+docker-compose down
+docker compose down -v  # 컨테이너 + 볼륨 삭제
+컨테이너, 네트워크 등을 정리함
+

@@ -1,0 +1,11 @@
+	implementation('com.esi.nextgen.common_util:kefci-common-nextgen:+') {
+		changing = true
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-webflux'
+	}
+	implementation('com.esi.nextgen.common_mapper:esi-common-nextgen:+') {
+        changing = true
+    }
+
+
++를 붙힌다

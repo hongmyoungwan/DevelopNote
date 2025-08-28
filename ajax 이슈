@@ -12,8 +12,13 @@ COMPLATE까지는 온전이 넘어왔으나 DONE에서 안넘어옴
 
 이슈있으면 SUCCESS 쓰기
 
+참고 내역
+https://string.tistory.com/128
 
-// 추가 메모
+
+
+// 추가 다른 메모
+Promis사용하기
 function test(){
   return new Promise(function(resolve, reject) {
 

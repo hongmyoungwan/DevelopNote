@@ -1,0 +1,27 @@
+$.ajax(
+{
+ ....
+}
+).done(function(data, textStatus, xhr) { });
+
+해당 방식으로 했을때 backend쪽 데이터를 온전히 못 받아 오는경우 발생
+
+SUCCESS > COMPLATE > DONE  이 순서에서
+
+COMPLATE까지는 온전이 넘어왔으나 DONE에서 안넘어옴
+
+이슈있으면 SUCCESS 쓰기
+
+
+// 추가 메모
+function test(){
+  return new Promise(function(resolve, reject) {
+
+    // 성공
+    resolve( 반환 데이터 )
+    실패
+    reject(반환 데이터)  
+  }
+}
+
+

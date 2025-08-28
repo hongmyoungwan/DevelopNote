@@ -9,3 +9,5 @@
 
 
 +를 붙힌다
+
+// 이슈 발생 vscode와 , intelliJ는 build 주체가 달라 작동 안될 수 있음

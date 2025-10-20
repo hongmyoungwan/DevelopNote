@@ -1,0 +1,10 @@
+ kill -9는 Graceful Shutdown이 적용되지 않습니다.
+kill -9의 특징:
+SIGKILL 신호를 보내는 것으로, 프로세스를 즉시 강제 종료
+프로세스가 이 신호를 무시하거나 처리할 수 없음
+Graceful Shutdown 로직이 실행되지 않음
+Graceful Shutdown이 적용되는 경우:
+kill (기본값, SIGTERM 신호)
+kill -15 (SIGTERM 신호)
+Ctrl+C (터미널에서)
+Spring Boot 애플리케이션의 shutdown 엔드포인트 호출

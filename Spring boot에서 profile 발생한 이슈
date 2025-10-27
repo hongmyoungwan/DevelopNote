@@ -1,0 +1,10 @@
+
+1. application-local.yml, application-dev.yml ... 로 나눔
+2. 각기 KMC 관련 code 호출 
+ ex) kmc:
+       urlCd:123456
+
+3. @Value를 사용하여 호출 하였으나 property에서 가져온값은 18443이라는 이상한 값을 가져옴
+4. 로직상 해당 숫자를 사용하는 부분도 없고 설정된 값이 없음
+5. class file 호출하여 @PostConstruct를 사용하여 초기 세팅에서 profile에 따른 하드코딩으로 우회
+ 
